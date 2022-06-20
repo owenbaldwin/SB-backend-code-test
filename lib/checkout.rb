@@ -21,8 +21,7 @@ class Checkout
           total += prices.fetch(item) * count
         end
       elsif item == :pineapple
-        total += (prices.fetch(item) / 2)
-        total += (prices.fetch(item)) * (count - 1)
+        total += (prices.fetch(item)) * (count - 0.5)
       elsif item == :banana
         total += (prices.fetch(item) / 2) * count
       elsif item == :mango
@@ -41,7 +40,6 @@ class Checkout
     @basket ||= Array.new
   end
 end
-
 
 
 
