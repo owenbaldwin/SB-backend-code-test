@@ -30,8 +30,7 @@ RSpec.describe Checkout do
 
     context 'when a two for 1 applies on apples' do
       before do
-        checkout.scan(:apple)
-        checkout.scan(:apple)
+        2.times { checkout.scan(:apple) }
       end
 
       it 'returns the discounted price for the basket' do
@@ -51,8 +50,7 @@ RSpec.describe Checkout do
 
     context 'when a two for 1 applies on pears' do
       before do
-        checkout.scan(:pear)
-        checkout.scan(:pear)
+        2.times { checkout.scan(:pear) }
       end
 
       it 'returns the discounted price for the basket' do
@@ -82,8 +80,7 @@ RSpec.describe Checkout do
 
     context 'when a half price offer applies on pineapples restricted to 1 per customer' do
       before do
-        checkout.scan(:pineapple)
-        checkout.scan(:pineapple)
+        2.times { checkout.scan(:pineapple) }
       end
 
       it 'returns the discounted price for the basket' do
