@@ -27,6 +27,8 @@ class Checkout
         else
           total += (prices.fetch(item) / 2) * count
         end
+      elsif item == :mango
+        total += ((prices.fetch(item)) * ((count - (count % 3)) * 2 / 3) + (prices.fetch(item)) * (count % 3))
       else
         total += prices.fetch(item) * count
       end
@@ -41,3 +43,15 @@ class Checkout
     @basket ||= Array.new
   end
 end
+
+
+
+
+# Unrefactored mango discount
+# if (count % 3 == 0)
+#   total += (prices.fetch(item)) * (count * 2 / 3)
+# elsif (count > 3 && count % 3 == 1)
+#   total += ((prices.fetch(item)) * ((count - 1) * 2 / 3) + (prices.fetch(item)))
+# elsif (count > 3 && count % 3 == 2)
+#   total += ((prices.fetch(item)) * ((count - 2) * 2 / 3) + (prices.fetch(item)) * 2)
+# end
